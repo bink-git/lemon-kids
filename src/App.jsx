@@ -4,19 +4,25 @@ import About from './components/About';
 import Reviews from './components/Reviews';
 import Faq from './components/Faq';
 import Footer from './components/Footer';
+import styled from 'styled-components';
 import './App.css';
 
 function App() {
   return (
-    <div>
+    <Wrapper>
       {/* <Header /> */}
       <Hero />
       <About />
       <Reviews />
       <Faq />
       <Footer />
-    </div>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export default App;

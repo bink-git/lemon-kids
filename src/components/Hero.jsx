@@ -23,7 +23,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="main-img">
-        <img src={mainImg} alt="main img" />
+        {/* <img src={mainImg} alt="main img" /> */}
       </div>
     </Wrapper>
   );
