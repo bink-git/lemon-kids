@@ -4,6 +4,7 @@ import About from './components/About';
 import Reviews from './components/Reviews';
 import Faq from './components/Faq';
 import Footer from './components/Footer';
+import ContactForm from './components/ContactForm';
 import styled from 'styled-components';
 import './App.css';
 
@@ -15,6 +16,7 @@ function App() {
       <About />
       <Reviews />
       <Faq />
+      <ContactForm />
       <Footer />
     </Wrapper>
   );

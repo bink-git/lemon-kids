@@ -4,6 +4,8 @@ import team from '../assets/team.png';
 import styled from 'styled-components';
 import smallCheck from '../assets/check-small.svg';
 import ButtonPrimary from './ButtonPrimary';
+import Title from './Title';
+import Subtitle from './Subtitle';
 
 const About = () => {
   return (
@@ -14,8 +16,8 @@ const About = () => {
           <img src={team} alt="team photo" />
         </div>
         <div className="about-info">
-          <p className="subtitle">Давайте знайомитися</p>
-          <h2>Хто ми?</h2>
+          <Subtitle>Давайте знайомитися</Subtitle>
+          <Title>Хто ми?</Title>
           <div className="descr">
             <p>
               Таким чином, початок повсякденної роботи з формування позиції
@@ -51,10 +53,9 @@ const About = () => {
 };
 
 const Wrapper = styled.section`
-  padding: 90px 50px;
+  padding: 90px 50px 0px 50px;
   position: relative;
   display: flex;
-
   gap: 60px;
 
   .light-bg {
@@ -70,28 +71,10 @@ const Wrapper = styled.section`
   .about-info {
     display: flex;
     flex-direction: column;
-
-    h2 {
-      color: var(--clr-primary-1);
-      font-size: 48px;
-      font-weight: 800;
-      line-height: normal;
-      margin-bottom: 30px;
-    }
-
-    .subtitle {
-      color: var(--clr-primary-2);
-      font-size: 18px;
-      font-weight: 400;
-      line-height: normal;
-      text-transform: uppercase;
-    }
+    justify-content: space-between;
 
     .descr {
       margin-bottom: 56px;
-    }
-
-    p {
       color: var(--clr-text);
       font-family: Roboto;
       font-size: 18px;
