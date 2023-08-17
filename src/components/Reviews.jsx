@@ -28,7 +28,6 @@ const Reviews = () => {
         <Swiper
           slidesPerView={3}
           // spaceBetween={20}
-
           centeredSlides={true}
           // autoplay={{
           //   delay: 5000,
@@ -162,6 +161,7 @@ const Wrapper = styled.section`
       height: 15px;
       border-radius: 12px;
       background-color: var(--clr-primary-2);
+      transition: all ease-in-out 0.3s;
     }
   }
 
