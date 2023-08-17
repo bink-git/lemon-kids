@@ -21,8 +21,8 @@ const Hero = () => {
             допомогти визначитися з тим, що ближче і подобається вашій дитині
           </p>
           <div className="buttons">
-            <ButtonPrimary>Хочу на платформу!</ButtonPrimary>
-            <ButtonSecondary>Хочу дізнатися докладніше</ButtonSecondary>
+            {/* <ButtonPrimary>Хочу на платформу!</ButtonPrimary> */}
+            {/* <ButtonSecondary>Хочу дізнатися докладніше</ButtonSecondary> */}
           </div>
         </div>
         <div className="main-img">
@@ -64,7 +64,7 @@ const Wrapper = styled.section`
   }
 
   p {
-    color: #5d2b6f;
+    color: var(--clr-text);
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
