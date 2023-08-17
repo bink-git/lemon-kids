@@ -28,6 +28,7 @@ const Reviews = () => {
         <Swiper
           slidesPerView={3}
           // spaceBetween={20}
+
           centeredSlides={true}
           // autoplay={{
           //   delay: 5000,
@@ -41,7 +42,7 @@ const Reviews = () => {
         >
           {slides.map((slide) => {
             return (
-              <SwiperSlide className="swiper-slide" key={slide.id}>
+              <SwiperSlide className="swiper-slide " key={slide.id}>
                 <img
                   src={slide.slide}
                   alt="slide photo"
@@ -78,17 +79,17 @@ const Wrapper = styled.section`
   padding-block: 90px;
   width: 100%;
   margin: 0 auto;
-  /* text-align: center; */
-  /* border: 1px solid blue; */
 
   h2,
   .sub-center {
     text-align: center;
   }
 
+  h2 {
+    margin-bottom: 100px;
+  }
+
   .slide-bg {
-    margin: 0 auto;
-    border: 1px solid green;
     position: relative;
     width: 100%;
     min-height: 450px;
@@ -102,7 +103,7 @@ const Wrapper = styled.section`
   }
   .rect-org {
     position: absolute;
-    top: 0;
+    top: -40px;
     right: 32%;
   }
 
@@ -110,7 +111,7 @@ const Wrapper = styled.section`
     width: 100%;
     min-height: 450px;
     height: 100%;
-    margin-top: 50px;
+    margin-top: 150px;
   }
 
   .swiper-slide {
@@ -135,13 +136,7 @@ const Wrapper = styled.section`
     justify-content: space-between;
     align-items: center;
     transform: scale(1);
-  }
-
-  .swiper-slide.swiper-slide-next,
-  .swiper-slide.swiper-slide-prev {
-    /* width: 366px; */
-    /* height: 148px; */
-    /* transform: scale(0.7); */
+    transition: transform ease-out 0.7s;
   }
 
   .swiper-slide.swiper-slide-next .slide-img,
