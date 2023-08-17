@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Subtitle from './Subtitle';
 import Title from './Title';
+import ButtonPrimary from './ButtonPrimary';
 import girl from '../assets/girl.jpg';
 
 const ContactForm = () => {
@@ -36,6 +37,9 @@ const ContactForm = () => {
               <textarea id="textarea" placeholder="Введіть текст"></textarea>
             </div>
           </div>
+          <ButtonPrimary className="btn-form" disabled>
+            Надіслати нам своє питання
+          </ButtonPrimary>
         </form>
       </div>
       <div className="form-img">
@@ -69,6 +73,7 @@ const Wrapper = styled.section`
     .inputs {
       display: flex;
       justify-content: space-between;
+      margin-bottom: 57px;
     }
 
     .input-group {
@@ -89,41 +94,43 @@ const Wrapper = styled.section`
     input {
       width: 420px;
       height: 40px;
+    }
+
+    textarea {
+      width: 330px;
+      height: 130px;
+      resize: none;
+    }
+
+    input,
+    textarea {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--clr-text);
       padding: 8px;
       border-radius: 10px;
       border: 1px solid var(--grey-border, #b9bcc3);
       background: var(--white, #fff);
     }
 
-    input::placeholder {
+    input::placeholder,
+    textarea::placeholder {
+      font-family: 'Open Sans', sans-serif;
       color: #777b82;
       font-size: 16px;
       font-style: normal;
       font-weight: 400;
-      line-height: 24px; /* 150% */
     }
 
-    input:focus {
+    input:focus,
+    textarea:focus {
       outline: 2px solid var(--clr-primary-1);
     }
   }
 
-  textarea {
-    width: 330px;
-    height: 130px;
-    padding: 8px;
-    border-radius: 10px;
-    border: 1px solid var(--grey-border, #b9bcc3);
-    background: var(--white, #fff);
-    resize: none;
-  }
-
-  textarea::placeholder {
-    color: #777b82;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
+  .btn-form {
+    width: 100%;
   }
 
   .form-img img {

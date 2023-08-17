@@ -44,7 +44,7 @@ const About = () => {
               </span>
             </p>
           </div>
-          <ButtonPrimary>Подивитись</ButtonPrimary>
+          <ButtonPrimary className="btn-about">Подивитись</ButtonPrimary>
         </div>
       </Wrapper>
       <Advanteges />
@@ -76,7 +76,6 @@ const Wrapper = styled.section`
     .descr {
       margin-bottom: 56px;
       color: var(--clr-text);
-      font-family: Roboto;
       font-size: 18px;
       font-style: normal;
       font-weight: 400;
@@ -103,19 +102,21 @@ const Wrapper = styled.section`
     }
 
     a {
-      color: #ff8a00;
+      color: var(--clr-primary-2);
       font-family: Open Sans;
       font-size: 20px;
       font-style: normal;
       font-weight: 700;
       line-height: 26px;
       text-decoration: none;
+      &:hover {
+        border-bottom: 1px solid var(--clr-primary-2);
+      }
     }
   }
 
-  .about-btn {
-    align-self: flex-start;
-    border: 5px solid red;
+  .btn-about {
+    align-self: self-start;
   }
 `;
 

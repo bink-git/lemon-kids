@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../assets/logo.svg';
-import Button from './ButtonPrimary';
+import ButtonPrimary from './ButtonPrimary';
 
 const Header = () => {
   return (
     <Wrapper>
       <div className="header">
         <nav className="main-nav">
-          <div className="logo">
-            <img src={logo} alt="main logo" />
-          </div>
+          <img src={logo} alt="main logo" className="logo" />
+
           <ul className="menu">
             <li>
               <a href="#">Про компанію</a>
@@ -23,7 +22,7 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <Button>Зв’яжіться з нами</Button>
+        <ButtonPrimary>Зв’яжіться з нами</ButtonPrimary>
       </div>
     </Wrapper>
   );
