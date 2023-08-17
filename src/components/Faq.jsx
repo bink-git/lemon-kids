@@ -14,7 +14,7 @@ const Faq = () => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper id="faq">
       <Subtitle>Питання та відповіді</Subtitle>
       <Title>
         Наші відповіді на <br /> частіщі запитання

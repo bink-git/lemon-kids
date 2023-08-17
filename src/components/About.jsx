@@ -10,44 +10,48 @@ import Subtitle from './Subtitle';
 const About = () => {
   return (
     <>
-      <Wrapper>
+      <Wrapper id="about">
         <div className="light-bg"></div>
-        <div className="about-img">
-          <img src={team} alt="team photo" />
-        </div>
-        <div className="about-info">
-          <Subtitle>Давайте знайомитися</Subtitle>
-          <Title>Хто ми?</Title>
-          <div className="descr">
-            <p>
-              Таким чином, початок повсякденної роботи з формування позиції
-              значною мірою зумовлює створення форм розвитку. Значимість цих
-              проблем настільки очевидна, що консультація із широким активом
-              відіграє важливу роль у формуванні форм розвитку.
-            </p>
-            <p>
-              Так само постійне інформаційно-пропагандистське забезпечення нашої
-              діяльності вимагають визначення та уточнення суттєвих фінансових
-              та адміністративних умов. Ідейні міркування вищого порядку, а
-              також рамки та місце навчання кадрів відіграє важливу роль у
-              формуванні форм розвитку.
-            </p>
+        <div className="about container">
+          <div className="about-img">
+            <img src={team} alt="team photo" />
           </div>
-          <div className="instagram">
-            <img src={smallCheck} alt="check icon" />
-            <p>
-              Наша сторінка в{' '}
-              <span>
-                <a href="https://www.instagram.com/" target="_blank">
-                  Instagram
-                </a>
-              </span>
-            </p>
+          <div className="about-info ">
+            <Subtitle>Давайте знайомитися</Subtitle>
+            <Title>Хто ми?</Title>
+            <div className="descr">
+              <p>
+                Таким чином, початок повсякденної роботи з формування позиції
+                значною мірою зумовлює створення форм розвитку. Значимість цих
+                проблем настільки очевидна, що консультація із широким активом
+                відіграє важливу роль у формуванні форм розвитку.
+              </p>
+              <p>
+                Так само постійне інформаційно-пропагандистське забезпечення
+                нашої діяльності вимагають визначення та уточнення суттєвих
+                фінансових та адміністративних умов. Ідейні міркування вищого
+                порядку, а також рамки та місце навчання кадрів відіграє важливу
+                роль у формуванні форм розвитку.
+              </p>
+            </div>
+            <div className="instagram">
+              <img src={smallCheck} alt="check icon" />
+              <p>
+                Наша сторінка в{' '}
+                <span>
+                  <a href="https://www.instagram.com/" target="_blank">
+                    Instagram
+                  </a>
+                </span>
+              </p>
+            </div>
+            <ButtonPrimary className="btn-about">Подивитись</ButtonPrimary>
           </div>
-          <ButtonPrimary className="btn-about">Подивитись</ButtonPrimary>
         </div>
       </Wrapper>
-      <Advanteges />
+      <div className="container">
+        <Advanteges />
+      </div>
     </>
   );
 };
@@ -66,6 +70,12 @@ const Wrapper = styled.section`
     top: 0;
     left: 0;
     z-index: -1;
+  }
+
+  .about {
+    display: flex;
+    gap: 60px;
+    padding-inline: 50px;
   }
 
   .about-info {

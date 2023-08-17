@@ -8,56 +8,61 @@ import girl from '../assets/girl.jpg';
 const ContactForm = () => {
   return (
     <Wrapper>
-      <div className="form-info">
-        <Subtitle>зворотна форма</Subtitle>
-        <Title>Залишились питання? Або бажаєте зворотній дзвінок?</Title>
-        <p className="descr">
-          Зв'яжіться з нами у будь-який час, і ми будемо раді відповісти на ваші
-          запитання. Заповніть форму, щоб надіслати нам email. Ми відповімо або
-          передзвонимо найближчим часом.
-        </p>
-        <form>
-          <div className="inputs">
-            <div className="input-group">
-              <div>
-                <label htmlFor="name">ПІБ</label>
-                <input type="text" placeholder="Введіть ваші ПІБ" id="name" />
+      <div className="container contact-form">
+        <div className="form-info">
+          <Subtitle>зворотна форма</Subtitle>
+          <Title>Залишились питання? Або бажаєте зворотній дзвінок?</Title>
+          <p className="descr">
+            Зв'яжіться з нами у будь-який час, і ми будемо раді відповісти на
+            ваші запитання. Заповніть форму, щоб надіслати нам email. Ми
+            відповімо або передзвонимо найближчим часом.
+          </p>
+          <form>
+            <div className="inputs">
+              <div className="input-group">
+                <div>
+                  <label htmlFor="name">ПІБ</label>
+                  <input type="text" placeholder="Введіть ваші ПІБ" id="name" />
+                </div>
+                <div>
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="email"
+                    placeholder="Введіть вашу електронну пошту"
+                    id="email"
+                  />
+                </div>
               </div>
-              <div>
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  placeholder="Введіть вашу електронну пошту"
-                  id="email"
-                />
+              <div className="textarea">
+                <label htmlFor="textarea">Коментар</label>
+                <textarea id="textarea" placeholder="Введіть текст"></textarea>
               </div>
             </div>
-            <div className="textarea">
-              <label htmlFor="textarea">Коментар</label>
-              <textarea id="textarea" placeholder="Введіть текст"></textarea>
-            </div>
-          </div>
-          <ButtonPrimary className="btn-form" disabled>
-            Надіслати нам своє питання
-          </ButtonPrimary>
-        </form>
-      </div>
-      <div className="form-img">
-        <img src={girl} alt="girl" />
+            <ButtonPrimary className="btn-form" disabled>
+              Надіслати нам своє питання
+            </ButtonPrimary>
+          </form>
+        </div>
+        <div className="form-img">
+          <img src={girl} alt="girl" />
+        </div>
       </div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
-  display: flex;
-  gap: 84px;
   min-height: 750px;
   height: 100%;
   background-image: url('./main-bg.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  .contact-form {
+    display: flex;
+    gap: 84px;
+  }
 
   .form-info {
     padding: 90px 0px 70px 50px;

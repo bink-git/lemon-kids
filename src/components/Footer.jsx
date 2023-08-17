@@ -6,56 +6,58 @@ import ButtonPrimary from './ButtonPrimary';
 const Footer = () => {
   return (
     <Wrapper>
-      <div className="footer-img">
-        <img src={logo} alt="main logo" width={378} />
-      </div>
+      <div className="footer container">
+        <div className="footer-img">
+          <img src={logo} alt="main logo" width={378} />
+        </div>
 
-      <div className="footer-info">
-        <div className="footer-subscribe">
-          <h3>Будьте в курсі нашої історії</h3>
-          <p>
-            Приєднуйтесь і будьте першим, хто дізнається про останні новини про
-            тренди, акції та багато іншого!
-          </p>
-          <form>
-            <label htmlFor="email">Email</label>
-            <div className="input-group">
-              <input
-                type="email"
-                placeholder="Введіть вашу електронну пошту"
-                id="email"
-              />
-              <ButtonPrimary className="btn-subscribe">
-                Приєднатись
-              </ButtonPrimary>
-            </div>
-          </form>
+        <div className="footer-info">
+          <div className="footer-subscribe">
+            <h3>Будьте в курсі нашої історії</h3>
+            <p>
+              Приєднуйтесь і будьте першим, хто дізнається про останні новини
+              про тренди, акції та багато іншого!
+            </p>
+            <form>
+              <label htmlFor="email">Email</label>
+              <div className="input-group">
+                <input
+                  type="email"
+                  placeholder="Введіть вашу електронну пошту"
+                  id="email"
+                />
+                <ButtonPrimary className="btn-subscribe">
+                  Приєднатись
+                </ButtonPrimary>
+              </div>
+            </form>
+          </div>
+          <div className="footer-nav">
+            <nav>
+              <ul>
+                <li>
+                  <a href="#">Про компанію</a>
+                </li>
+                <li>
+                  <a href="#">Відгуки</a>
+                </li>
+                <li>
+                  <a href="#">Питання</a>
+                </li>
+                <li>
+                  <a href="#">Політика конфіденційності</a>
+                </li>
+                <li>
+                  <a href="#">Правила та умови</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
-        <div className="footer-nav">
-          <nav>
-            <ul>
-              <li>
-                <a href="#">Про компанію</a>
-              </li>
-              <li>
-                <a href="#">Відгуки</a>
-              </li>
-              <li>
-                <a href="#">Питання</a>
-              </li>
-              <li>
-                <a href="#">Політика конфіденційності</a>
-              </li>
-              <li>
-                <a href="#">Правила та умови</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+        <p className="footer-copy">
+          © 2023 <span>Lemon Kids</span>. Усі права захищені
+        </p>
       </div>
-      <p className="footer-copy">
-        © 2023 <span>Lemon Kids</span>. Усі права захищені
-      </p>
     </Wrapper>
   );
 };
@@ -68,6 +70,10 @@ const Wrapper = styled.section`
     display: block;
     margin: 0 auto;
     margin-bottom: 60px;
+  }
+
+  .footer {
+    padding-inline: 50px;
   }
 
   .footer-info {
