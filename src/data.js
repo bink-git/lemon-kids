@@ -48,11 +48,3 @@ export const faqs = [
       'Таким чином, початок повсякденної роботи з формування позиції значною мірою зумовлює створення форм розвитку. Значимість цих проблем настільки очевидна, що консультація із широким активом відіграє важливу роль у формуванні форм розвитку.',
   },
 ];
-
-export const slides = [
-  { id: 1, slide: '../src/assets/slide-1.png' },
-  { id: 2, slide: '../src/assets/slide-2.png' },
-  { id: 3, slide: '../src/assets/slide-3.png' },
-  { id: 4, slide: '../src/assets/slide-4.png' },
-  { id: 5, slide: '../src/assets/slide-1.png' },
-];

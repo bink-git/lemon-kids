@@ -6,6 +6,10 @@ import rectPurp from '../assets/rect-purple.svg';
 import rectOrange from '../assets/rect-orange.svg';
 import stars from '../assets/stars.svg';
 import commentDots from '../assets/slide-dots-icon.svg';
+import slide1 from '../assets/slide-1.png';
+import slide2 from '../assets/slide-2.png';
+import slide3 from '../assets/slide-3.png';
+import slide4 from '../assets/slide-4.png';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,7 +18,21 @@ import { Pagination, Autoplay } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { slides } from '../data.js';
+
+const slides = [
+  { id: 1, path: slide1 },
+  { id: 2, path: slide2 },
+  { id: 3, path: slide3 },
+  { id: 4, path: slide4 },
+  { id: 5, path: slide1 },
+];
+// const slides = [
+//   { id: 1, path: import('../assets/slide-1.png') },
+//   { id: 2, path: import('../assets/slide-2.png') },
+//   { id: 3, path: import('../assets/slide-3.png') },
+//   { id: 4, path: import('../assets/slide-4.png') },
+//   { id: 5, path: import('../assets/slide-1.png') },
+// ];
 
 const Reviews = () => {
   return (
@@ -41,12 +59,8 @@ const Reviews = () => {
         >
           {slides.map((slide) => {
             return (
-              <SwiperSlide className="swiper-slide " key={slide.id}>
-                <img
-                  src={slide.slide}
-                  alt="slide photo"
-                  className="slide-img"
-                />
+              <SwiperSlide className="swiper-slide" key={slide.id}>
+                <img src={slide.path} alt="slide photo" className="slide-img" />
                 <div className="slide-content">
                   <div className="slide-rating">
                     <img src={stars} alt="stars rating" />
@@ -98,7 +112,7 @@ const Wrapper = styled.section`
   .rect-purp {
     position: absolute;
     left: 30%;
-    bottom: 25%;
+    bottom: 30%;
   }
   .rect-org {
     position: absolute;
@@ -161,7 +175,7 @@ const Wrapper = styled.section`
       height: 15px;
       border-radius: 12px;
       background-color: var(--clr-primary-2);
-      transition: all ease-in-out 0.3s;
+      transition: width ease 0.3s;
     }
   }
 
