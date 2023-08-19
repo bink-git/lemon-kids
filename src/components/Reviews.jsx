@@ -26,13 +26,6 @@ const slides = [
   { id: 4, path: slide4 },
   { id: 5, path: slide1 },
 ];
-// const slides = [
-//   { id: 1, path: import('../assets/slide-1.png') },
-//   { id: 2, path: import('../assets/slide-2.png') },
-//   { id: 3, path: import('../assets/slide-3.png') },
-//   { id: 4, path: import('../assets/slide-4.png') },
-//   { id: 5, path: import('../assets/slide-1.png') },
-// ];
 
 const Reviews = () => {
   return (
@@ -47,10 +40,10 @@ const Reviews = () => {
           slidesPerView={3}
           // spaceBetween={20}
           centeredSlides={true}
-          // autoplay={{
-          //   delay: 5000,
-          //   disableOnInteraction: false,
-          // }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
           pagination={{
             clickable: true,
           }}
@@ -149,7 +142,7 @@ const Wrapper = styled.section`
     justify-content: space-between;
     align-items: center;
     transform: scale(1);
-    transition: transform ease-out 0.7s;
+    transition: transform ease-out 1s;
   }
 
   .swiper-slide.swiper-slide-next .slide-img,

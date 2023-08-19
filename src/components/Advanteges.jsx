@@ -33,7 +33,7 @@ const Advanteges = () => {
 };
 
 const Wrapper = styled.section`
-  padding: 100px 130px 90px;
+  padding: 100px 90px;
 
   h2 {
     text-align: center;
@@ -42,8 +42,9 @@ const Wrapper = styled.section`
 
   .advantages {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 60px;
   }
 `;
 

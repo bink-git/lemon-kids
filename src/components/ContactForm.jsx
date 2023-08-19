@@ -4,6 +4,7 @@ import Subtitle from './Subtitle';
 import Title from './Title';
 import ButtonPrimary from './ButtonPrimary';
 import girl from '../assets/girl.jpg';
+import Phone from './PhoneInput';
 
 const ContactForm = () => {
   return (
@@ -20,17 +21,32 @@ const ContactForm = () => {
           <form>
             <div className="inputs">
               <div className="input-group">
-                <div>
+                <div className="input-name">
                   <label htmlFor="name">ПІБ</label>
                   <input type="text" placeholder="Введіть ваші ПІБ" id="name" />
                 </div>
-                <div>
+                <div className="input-email">
                   <label htmlFor="email">Email</label>
                   <input
                     type="email"
                     placeholder="Введіть вашу електронну пошту"
                     id="email"
                   />
+                </div>
+                <div className="input-phone">
+                  {/* <div>
+                    <label htmlFor="phone">Телефон</label>
+                    <input
+                      type="tel"
+                      placeholder="Введіть вашу електронну пошту"
+                      id="phone"
+                    />
+                  </div>
+                  <input type="text" /> */}
+                  <label htmlFor="phone" style={{ display: 'inline' }}>
+                    Телефон
+                  </label>
+                  <Phone id="phone" />
                 </div>
               </div>
               <div className="textarea">
@@ -52,7 +68,6 @@ const ContactForm = () => {
 };
 
 const Wrapper = styled.section`
-  min-height: 750px;
   height: 100%;
   background-image: url('./main-bg.jpg');
   background-position: center;
@@ -61,15 +76,17 @@ const Wrapper = styled.section`
 
   .contact-form {
     display: flex;
-    gap: 84px;
+    justify-content: space-between;
+    overflow: hidden;
+    /* gap: 84px; */
   }
 
   .form-info {
-    padding: 90px 0px 70px 50px;
+    padding: 90px 50px 70px 50px;
 
     .descr {
       color: var(--clr-text);
-      font-size: 17px;
+      font-size: var(--text-base);
       font-weight: 600;
       line-height: normal;
       margin-bottom: 24px;
@@ -85,11 +102,14 @@ const Wrapper = styled.section`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      flex: 1;
+      max-width: 420px;
+      width: 100%;
     }
 
     label {
       color: var(--clr-primary-1);
-      font-size: 16px;
+      font-size: var(--text-base);
       font-weight: 600;
       line-height: 18px; /* 112.5% */
       display: block;
@@ -97,8 +117,10 @@ const Wrapper = styled.section`
     }
 
     input {
-      width: 420px;
+      width: 100%;
       height: 40px;
+      flex-grow: 1;
+      margin-bottom: 20px;
     }
 
     textarea {
@@ -110,7 +132,7 @@ const Wrapper = styled.section`
     input,
     textarea {
       font-family: 'Open Sans', sans-serif;
-      font-size: 16px;
+      font-size: var(--text-base);
       font-weight: 400;
       color: var(--clr-text);
       padding: 8px;
@@ -123,7 +145,7 @@ const Wrapper = styled.section`
     textarea::placeholder {
       font-family: 'Open Sans', sans-serif;
       color: #777b82;
-      font-size: 16px;
+      font-size: var(--text-base);
       font-style: normal;
       font-weight: 400;
     }
@@ -134,12 +156,18 @@ const Wrapper = styled.section`
     }
   }
 
-  .btn-form {
-    width: 100%;
-  }
+  /* .input-phone {
+    display: flex;
+    align-items: end;
+  } */
 
   .form-img img {
     height: 100%;
+    object-fit: fill;
+  }
+
+  .btn-form {
+    width: 100%;
   }
 `;
 

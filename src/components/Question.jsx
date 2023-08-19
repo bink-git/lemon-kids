@@ -34,7 +34,7 @@ const QuestionStyled = styled.div`
 
   h4 {
     color: var(--clr-text);
-    font-size: 18px;
+    font-size: var(--text-lg);
     font-weight: 700;
   }
 
@@ -44,7 +44,7 @@ const QuestionStyled = styled.div`
 
   .answer {
     color: var(--clr-text);
-    font-size: 16px;
+    font-size: var(--text-base);
     text-align: justify;
     font-weight: 400;
     padding: 16px 24px 32px 24px;

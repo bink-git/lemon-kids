@@ -7,9 +7,8 @@ const Title = ({ children }) => {
 
 const TitleStyled = styled.h2`
   color: var(--clr-primary-1);
-  font-size: 48px;
+  font-size: var(--text-5xl);
   font-weight: 800;
-  line-height: normal;
   margin-bottom: 30px;
 `;
 

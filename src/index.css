@@ -13,6 +13,16 @@
   --clr-primary-1: #8e55bb;
   --clr-primary-2: #e9922d;
   --clr-text: #5d2b6f;
+
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-5xl: 3rem; /* 48px */
+
+  --react-international-phone-country-selector-arrow-size: 8px;
+  --react-international-phone-country-selector-arrow-color: var(
+    --clr-primary-1
+  );
 }
 
 *,

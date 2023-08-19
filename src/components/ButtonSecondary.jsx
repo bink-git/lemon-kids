@@ -10,7 +10,7 @@ const ButtonStyled = styled.button`
   color: var(--clr-primary-1);
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: var(--text-lg);
   border-radius: 60px;
   display: inline-flex;
   padding: 17px 37px;

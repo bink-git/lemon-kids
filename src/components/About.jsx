@@ -86,7 +86,7 @@ const Wrapper = styled.section`
     .descr {
       margin-bottom: 56px;
       color: var(--clr-text);
-      font-size: 18px;
+      font-size: var(--text-lg);
       font-style: normal;
       font-weight: 400;
       line-height: 26px; /* 144.444% */
@@ -105,7 +105,7 @@ const Wrapper = styled.section`
 
     p {
       color: var(--clr-text);
-      font-size: 20px;
+      font-size: var(--text-xl);
       font-style: normal;
       font-weight: 400;
       margin: 0;
@@ -114,8 +114,7 @@ const Wrapper = styled.section`
     a {
       color: var(--clr-primary-2);
       font-family: Open Sans;
-      font-size: 20px;
-      font-style: normal;
+      font-size: var(--text-xl);
       font-weight: 700;
       line-height: 26px;
       text-decoration: none;

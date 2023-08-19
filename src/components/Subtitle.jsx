@@ -7,7 +7,7 @@ const Subtitle = ({ children }) => {
 
 const SubtitleStyled = styled.p`
   color: var(--clr-primary-2);
-  font-size: 18px;
+  font-size: var(--text-lg);
   font-weight: 400;
   line-height: normal;
   text-transform: uppercase;

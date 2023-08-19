@@ -18,7 +18,7 @@ const ButtonStyled = styled.button`
   color: white;
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: var(--text-lg);
   line-height: 100%;
   border-radius: 60px;
   padding: 17px 37px;
