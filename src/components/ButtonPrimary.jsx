@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ButtonPrimary = ({ children, disabled }) => {
+const ButtonPrimary = ({ children, disabled, type }) => {
   return (
     <ButtonStyled
-      type="button"
+      type={type}
       disabled={disabled}
       className="btn-about btn-form btn-subscribe"
     >

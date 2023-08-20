@@ -11,8 +11,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './validationSchema';
 import NameInput from './NameInput';
 import EmailInput from './EmailInput';
-import PhoneRef from './PhoneRef';
-import PhoneChat from './PhoneChat';
+
 import PhoneInput2 from './PhoneInput2';
 
 const ContactForm = () => {
@@ -32,6 +31,7 @@ const ContactForm = () => {
       name: '',
       email: '',
       phone: '',
+      textarea: '',
     },
     mode: 'onChange',
     resolver: yupResolver(schema),
@@ -44,7 +44,8 @@ const ContactForm = () => {
     reset({
       name: '',
       email: '',
-      phone: '+380',
+      phone: '',
+      textarea: '',
     });
   };
 
@@ -59,7 +60,7 @@ const ContactForm = () => {
             ваші запитання. Заповніть форму, щоб надіслати нам email. Ми
             відповімо або передзвонимо найближчим часом.
           </p>
-          {/* <FormProvider> */}
+
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="inputs">
               <div className="input-group">
@@ -87,13 +88,6 @@ const ContactForm = () => {
                   <p className="error">{errors.email?.message}</p>
                 </div>
 
-                {/* <PhoneChat
-                  name="phone"
-                  label="Phone Number"
-                  control={control}
-                  ref={phoneRef}
-                /> */}
-
                 <div className="input-phone">
                   <PhoneInput2
                     name="phone"
@@ -103,35 +97,33 @@ const ContactForm = () => {
                   />
                   <p className="error">{errors.phone?.message}</p>
                 </div>
-                {/* <div className="input-phone">
-                  <label htmlFor="phone" style={{ display: 'inline' }}>
-                    Телефон
-                  </label>
-                  <Phone id="phone" register={register} />
-                </div> */}
               </div>
               <div className="textarea">
                 <label htmlFor="textarea">Коментар</label>
                 <textarea
                   id="textarea"
                   placeholder="Введіть текст"
-                  {...register('textarea')}
+                  {...register('textarea', {
+                    required: true,
+                  })}
                 ></textarea>
+                <p className="error">{errors.textarea?.message}</p>
               </div>
             </div>
-            <button
+            <ButtonPrimary
               className="btn-form"
               type="submit"
-              disabled={!watchAllFields.every(Boolean)}
+              disabled={
+                !watchAllFields.every(Boolean) || watch('textarea').length < 10
+              }
             >
               Надіслати нам своє питання
-            </button>
+            </ButtonPrimary>
           </form>
-          {/* </FormProvider> */}
         </div>
-        {/* <div className="form-img">
+        <div className="form-img">
           <img src={girl} alt="girl" />
-        </div> */}
+        </div>
       </div>
     </Wrapper>
   );
