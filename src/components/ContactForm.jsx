@@ -1,12 +1,53 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Subtitle from './Subtitle';
 import Title from './Title';
 import ButtonPrimary from './ButtonPrimary';
 import girl from '../assets/girl.jpg';
 import Phone from './PhoneInput';
+import { useForm } from 'react-hook-form';
+
+import { yupResolver } from '@hookform/resolvers/yup';
+import { schema } from './validationSchema';
+import NameInput from './NameInput';
+import EmailInput from './EmailInput';
+import PhoneRef from './PhoneRef';
+import PhoneChat from './PhoneChat';
+import PhoneInput2 from './PhoneInput2';
 
 const ContactForm = () => {
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const phoneRef = useRef();
+
+  const {
+    register,
+    control,
+    reset,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+    },
+    mode: 'onChange',
+    resolver: yupResolver(schema),
+  });
+
+  const watchAllFields = watch(['name', 'email', 'phone']);
+
+  const onSubmit = (data) => {
+    console.log(data);
+    reset({
+      name: '',
+      email: '',
+      phone: '+380',
+    });
+  };
+
   return (
     <Wrapper>
       <div className="container contact-form">
@@ -18,50 +59,79 @@ const ContactForm = () => {
             ваші запитання. Заповніть форму, щоб надіслати нам email. Ми
             відповімо або передзвонимо найближчим часом.
           </p>
-          <form>
+          {/* <FormProvider> */}
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="inputs">
               <div className="input-group">
-                <div className="input-name">
+                <div className="input input-name">
                   <label htmlFor="name">ПІБ</label>
-                  <input type="text" placeholder="Введіть ваші ПІБ" id="name" />
+                  <input
+                    type="text"
+                    placeholder="Введіть ваші ПІБ"
+                    id="name"
+                    {...register('name', { required: true })}
+                  />
+                  <p className="error">{errors.name?.message}</p>
                 </div>
-                <div className="input-email">
+                {/* <NameInput /> */}
+                <div className="input input-email">
                   <label htmlFor="email">Email</label>
                   <input
                     type="email"
                     placeholder="Введіть вашу електронну пошту"
                     id="email"
+                    {...register('email', {
+                      required: true,
+                    })}
                   />
+                  <p className="error">{errors.email?.message}</p>
                 </div>
+
+                {/* <PhoneChat
+                  name="phone"
+                  label="Phone Number"
+                  control={control}
+                  ref={phoneRef}
+                /> */}
+
                 <div className="input-phone">
-                  {/* <div>
-                    <label htmlFor="phone">Телефон</label>
-                    <input
-                      type="tel"
-                      placeholder="Введіть вашу електронну пошту"
-                      id="phone"
-                    />
-                  </div>
-                  <input type="text" /> */}
+                  <PhoneInput2
+                    name="phone"
+                    label="Телефон"
+                    control={control}
+                    ref={phoneRef}
+                  />
+                  <p className="error">{errors.phone?.message}</p>
+                </div>
+                {/* <div className="input-phone">
                   <label htmlFor="phone" style={{ display: 'inline' }}>
                     Телефон
                   </label>
-                  <Phone id="phone" />
-                </div>
+                  <Phone id="phone" register={register} />
+                </div> */}
               </div>
               <div className="textarea">
                 <label htmlFor="textarea">Коментар</label>
-                <textarea id="textarea" placeholder="Введіть текст"></textarea>
+                <textarea
+                  id="textarea"
+                  placeholder="Введіть текст"
+                  {...register('textarea')}
+                ></textarea>
               </div>
             </div>
-            <ButtonPrimary className="btn-form" disabled>
+            <button
+              className="btn-form"
+              type="submit"
+              disabled={!watchAllFields.every(Boolean)}
+            >
               Надіслати нам своє питання
-            </ButtonPrimary>
+            </button>
           </form>
+          {/* </FormProvider> */}
         </div>
-        <div className="form-img">
+        {/* <div className="form-img">
           <img src={girl} alt="girl" />
-        </div>
+        </div> */}
       </div>
     </Wrapper>
   );
@@ -120,8 +190,11 @@ const Wrapper = styled.section`
       width: 100%;
       height: 40px;
       flex-grow: 1;
-      margin-bottom: 20px;
     }
+
+    /* .input {
+      margin-bottom: 20px;
+    } */
 
     textarea {
       width: 330px;
@@ -154,6 +227,12 @@ const Wrapper = styled.section`
     textarea:focus {
       outline: 2px solid var(--clr-primary-1);
     }
+  }
+
+  .error {
+    color: red;
+    font-size: small;
+    margin-bottom: 20px;
   }
 
   /* .input-phone {
