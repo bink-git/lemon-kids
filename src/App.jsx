@@ -3,7 +3,7 @@ import About from './components/About';
 import Reviews from './components/Reviews';
 import Faq from './components/Faq';
 import Footer from './components/Footer';
-import ContactForm from './components/ContactForm';
+import ContactForm from './components/ContactForm/ContactForm';
 import styled from 'styled-components';
 
 function App() {
