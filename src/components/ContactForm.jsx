@@ -7,7 +7,7 @@ import girl from '../assets/girl.jpg';
 import { useForm, Controller } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import { schema } from './validationSchema';
+import { schema } from './validationSchema.js';
 import NameInput from './NameInput';
 import EmailInput from './EmailInput';
 
