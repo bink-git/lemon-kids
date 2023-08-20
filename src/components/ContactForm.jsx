@@ -4,8 +4,7 @@ import Subtitle from './Subtitle';
 import Title from './Title';
 import ButtonPrimary from './ButtonPrimary';
 import girl from '../assets/girl.jpg';
-import Phone from './PhoneInput';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './validationSchema';
@@ -89,13 +88,27 @@ const ContactForm = () => {
                 </div>
 
                 <div className="input-phone">
-                  <PhoneInput2
+                  <Controller
+                    name="phone"
+                    control={control}
+                    render={({ field }) => (
+                      <>
+                        <PhoneInput2
+                          name="phone"
+                          label="Телефон"
+                          onChange={field.onChange}
+                        />
+                        <p className="error">{errors.phone?.message}</p>
+                      </>
+                    )}
+                  />
+                  {/* <PhoneInput2
                     name="phone"
                     label="Телефон"
                     control={control}
                     ref={phoneRef}
-                  />
-                  <p className="error">{errors.phone?.message}</p>
+                  /> */}
+                  {/* <p className="error">{errors.phone?.message}</p> */}
                 </div>
               </div>
               <div className="textarea">
