@@ -2,7 +2,7 @@ import React, { forwardRef, useState } from 'react';
 import { PhoneInput, CountrySelector } from 'react-international-phone';
 import 'react-international-phone/style.css';
 
-const PhoneInput2 = ({ name, label, onChange }) => {
+const PhoneNumberInput = ({ name, label, onChange }) => {
   const [phone, setPhone] = useState('');
 
   const handlePhoneChange = (value) => {
@@ -41,4 +41,4 @@ const PhoneInput2 = ({ name, label, onChange }) => {
   );
 };
 
-export default PhoneInput2;
+export default PhoneNumberInput;

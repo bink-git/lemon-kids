@@ -9,10 +9,8 @@ import { useForm, Controller } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './validationSchema';
-import NameInput from '../NameInput';
-import EmailInput from '../EmailInput';
 
-import PhoneInput2 from '../PhoneInput2';
+import PhoneNumberInput from '../PhoneNumberInput';
 
 const ContactForm = () => {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -94,7 +92,7 @@ const ContactForm = () => {
                     control={control}
                     render={({ field }) => (
                       <>
-                        <PhoneInput2
+                        <PhoneNumberInput
                           name="phone"
                           label="Телефон"
                           onChange={field.onChange}
