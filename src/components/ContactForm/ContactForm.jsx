@@ -4,6 +4,7 @@ import Subtitle from '../Subtitle';
 import Title from '../Title';
 import ButtonPrimary from '../ButtonPrimary';
 import girl from '../../assets/girl.jpg';
+import { useGlobalContext } from '../../context';
 
 import { useForm, Controller } from 'react-hook-form';
 
@@ -11,11 +12,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './validationSchema';
 
 import PhoneNumberInput from '../PhoneNumberInput';
+import Modal from '../Modal';
 
 const ContactForm = () => {
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  const phoneRef = useRef();
+  const { openModal, isSuccess, setIsSuccess } = useGlobalContext();
 
   const {
     register,
@@ -35,10 +35,12 @@ const ContactForm = () => {
     resolver: yupResolver(schema),
   });
 
-  const watchAllFields = watch(['name', 'email', 'phone']);
+  const watchAllFields = watch(['name', 'email', 'phone', 'textarea']);
 
   const onSubmit = (data) => {
     console.log(data);
+    setIsSuccess(true);
+    openModal();
     reset({
       name: '',
       email: '',
@@ -72,7 +74,7 @@ const ContactForm = () => {
                   />
                   <p className="error">{errors.name?.message}</p>
                 </div>
-                {/* <NameInput /> */}
+
                 <div className="input input-email">
                   <label htmlFor="email">Email</label>
                   <input
@@ -93,21 +95,15 @@ const ContactForm = () => {
                     render={({ field }) => (
                       <>
                         <PhoneNumberInput
-                          name="phone"
+                          name={field.name}
                           label="Телефон"
                           onChange={field.onChange}
+                          value={field.value}
                         />
                         <p className="error">{errors.phone?.message}</p>
                       </>
                     )}
                   />
-                  {/* <PhoneInput2
-                    name="phone"
-                    label="Телефон"
-                    control={control}
-                    ref={phoneRef}
-                  /> */}
-                  {/* <p className="error">{errors.phone?.message}</p> */}
                 </div>
               </div>
               <div className="textarea">
@@ -122,7 +118,7 @@ const ContactForm = () => {
                 <p className="error">{errors.textarea?.message}</p>
               </div>
             </div>
-            <ButtonPrimary
+            <button
               className="btn-form"
               type="submit"
               disabled={
@@ -130,12 +126,13 @@ const ContactForm = () => {
               }
             >
               Надіслати нам своє питання
-            </ButtonPrimary>
+            </button>
           </form>
         </div>
         <div className="form-img">
           <img src={girl} alt="girl" />
         </div>
+        {isSuccess && <Modal />}
       </div>
     </Wrapper>
   );
@@ -152,7 +149,6 @@ const Wrapper = styled.section`
     display: flex;
     justify-content: space-between;
     overflow: hidden;
-    /* gap: 84px; */
   }
 
   .form-info {
@@ -196,10 +192,6 @@ const Wrapper = styled.section`
       flex-grow: 1;
     }
 
-    /* .input {
-      margin-bottom: 20px;
-    } */
-
     textarea {
       width: 330px;
       height: 130px;
@@ -239,18 +231,39 @@ const Wrapper = styled.section`
     margin-bottom: 20px;
   }
 
-  /* .input-phone {
-    display: flex;
-    align-items: end;
-  } */
-
   .form-img img {
     height: 100%;
     object-fit: fill;
   }
-
   .btn-form {
     width: 100%;
+    background-color: var(--clr-primary-1);
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: var(--text-lg);
+    line-height: 100%;
+    border-radius: 60px;
+    padding: 17px 37px;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e4cdf6;
+    }
+
+    &:active {
+      background-color: #ffd500;
+    }
+
+    &:disabled {
+      background-color: #eae5ee;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
   }
 `;
 

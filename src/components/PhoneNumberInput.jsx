@@ -1,13 +1,17 @@
 import React, { forwardRef, useState } from 'react';
 import { PhoneInput, CountrySelector } from 'react-international-phone';
 import 'react-international-phone/style.css';
+import { useGlobalContext } from '../context';
 
-const PhoneNumberInput = ({ name, label, onChange }) => {
+const PhoneNumberInput = ({ name, label, onChange, value }) => {
+  console.log(value);
   const [phone, setPhone] = useState('');
+  const { isSuccess, closeModal } = useGlobalContext();
 
   const handlePhoneChange = (value) => {
-    setPhone(value);
-    onChange(name, value);
+    // setPhone(value);
+    onChange(value, name);
+    // isSuccess && setPhone('');
   };
   return (
     <>
@@ -15,7 +19,7 @@ const PhoneNumberInput = ({ name, label, onChange }) => {
 
       <PhoneInput
         name={name}
-        value={phone}
+        value={value}
         onChange={handlePhoneChange}
         disableDialCodeAndPrefix={true}
         showDisabledDialCodeAndPrefix={true}
@@ -26,7 +30,6 @@ const PhoneNumberInput = ({ name, label, onChange }) => {
           outline: 'none',
           width: '20px',
         }}
-        className="phone-input"
         countrySelectorStyleProps={{
           buttonStyle: {
             height: '40px',
@@ -36,6 +39,7 @@ const PhoneNumberInput = ({ name, label, onChange }) => {
             padding: '8px',
           },
         }}
+        className="phone-input"
       />
     </>
   );

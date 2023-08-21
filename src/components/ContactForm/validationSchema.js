@@ -1,11 +1,13 @@
 import * as yup from 'yup';
 
 export const schema = yup.object().shape({
-  name: yup.string().required('⚠ "Це поле є обов\'язковим"'),
-  // .matches(/[а-яА-Я^]+/g, {
-  //   message: 'Поле має містити тільки літери української абетки',
-  //   excludeEmptyString: true,
-  // }),)
+  name: yup
+    .string()
+    .required('⚠ "Це поле є обов\'язковим"')
+    .matches(/[а-яА-Я^]+/g, {
+      message: 'Поле має містити тільки літери української абетки',
+      excludeEmptyString: true,
+    }),
 
   email: yup
     .string()
@@ -18,7 +20,7 @@ export const schema = yup.object().shape({
     )
     .required('⚠ "Це поле є обов\'язковим"')
     .email('Це поле має містити валідний email "user@email.com')
-    .min(2, 'minLength: 2 characters')
+    .min(6, 'minLength: 6 characters')
     .max(100, 'maxLength: 100 characters'),
 
   phone: yup.string().required('⚠ "Це поле є обов\'язковим"'),

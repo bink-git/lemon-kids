@@ -77,8 +77,11 @@ const Wrapper = styled.section`
     justify-content: space-between;
   }
 
-  .main-img {
-    object-fit: cover;
+  .main-img img {
+    /* object-fit: cover; */
+    width: 635px;
+    /* width: 100%; */
+    height: auto;
   }
 `;
 

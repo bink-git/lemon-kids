@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ButtonPrimary = ({ children, disabled, type }) => {
+const ButtonPrimary = ({ children, disabled, type, onClick }) => {
   return (
     <ButtonStyled
       type={type}
       disabled={disabled}
-      className="btn-about btn-form btn-subscribe"
+      className="btn-about btn-subscribe"
+      onClick={onClick}
     >
       {children}
     </ButtonStyled>
